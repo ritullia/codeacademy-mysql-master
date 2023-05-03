@@ -44,12 +44,11 @@ router.post("/products", (req, res) => {
       stock,
       discountPercentage,
       price,
-      rating,
     },
   } = req;
 
   tasksManagerConnection.execute(
-    "INSERT INTO products (title, thumbnail, brand, category, description, stock, discountPercentage, price, rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    "INSERT INTO products (title, thumbnail, brand, category, description, stock, discountPercentage, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
     [
       title,
       thumbnail,
@@ -59,7 +58,6 @@ router.post("/products", (req, res) => {
       stock,
       discountPercentage,
       price,
-      rating,
     ],
     (err, result) => defaultCallback(err, result, res)
   );
